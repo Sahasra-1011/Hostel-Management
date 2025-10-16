@@ -1,7 +1,6 @@
-
 .app-container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #1a247b, #000000);
+  background: linear-gradient(135deg, #242375, #000000);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,9 +9,8 @@
   font-family: "Poppins", sans-serif;
 }
 
-
 .search-box {
-  background: rgba(218, 117, 117, 0.33);
+  background: rgba(101, 73, 135, 0.35);
   padding: 30px 40px;
   border-radius: 20px;
   backdrop-filter: blur(10px);
@@ -32,7 +30,6 @@
   color: #f0f0f0;
   margin-bottom: 20px;
 }
-
 
 .input-group {
   display: flex;
@@ -65,7 +62,6 @@
   transform: scale(1.10);
 }
 
-
 .results-container {
   width: 90%;
   max-width: 1000px;
@@ -79,7 +75,6 @@
   font-size: 1.1rem;
   margin-top: 20px;
 }
-
 
 .hostel-list {
   display: grid;
@@ -111,4 +106,226 @@
 .hostel-card p {
   font-size: 0.9rem;
   color: #555;
+}
+
+.details-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.details-btn:hover {
+  background-color: #0056b3;
+}
+
+.details-section {
+  background: #f9f9f9;
+  padding: 20px;
+  margin: 30px auto;
+  width: 80%;
+  border-radius: 10px;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ---------- View Details Button ---------- */
+.details-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.details-btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* ---------- Hostel Details Section ---------- */
+.details-section {
+  background: #f9f9f9;
+  padding: 24px;
+  margin: 40px auto;
+  width: 85%;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  color: #222;
+  text-align: left;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.details-section h2 {
+  color: #222;
+  margin-bottom: 16px;
+  font-size: 22px;
+}
+
+.details-section p {
+  margin: 6px 0;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* ---------- Subtle animation ---------- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.details-section {
+  background: #ffffff;
+  padding: 20px;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 12px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+.details-section h2 {
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.details-section p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 6px 0;
+}
+
+.details-section {
+  background: #f9fafc;
+  border: 2px solid #007bff;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 30px auto;
+  width: 80%;
+  max-width: 600px;
+  text-align: left;
+  color: #111;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+}
+
+.details-section h2 {
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.details-section p {
+  margin: 6px 0;
+  line-height: 1.6;
+}
+
+.details-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f3f6fc;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.details-card {
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 500px;
+  text-align: left;
+}
+
+.back-btn {
+  align-self: flex-start;
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
+
+.back-btn:hover {
+  background: #0056b3;
+}
+
+.details-page {
+  padding: 20px;
+  text-align: left;
+}
+
+.back-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.back-btn:hover {
+  background-color: #0056b3;
+}
+
+.details-page {
+  padding: 30px;
+  text-align: center;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+#map-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.leaflet-container {
+  height: 400px !important;
+  width: 80% !important;
+  margin: 20px auto;
+  border-radius: 10px;
+  z-index: 1;
+}
+/* Force Leaflet container to have height and center it */
+.leaflet-map, .leaflet-container {
+  height: 400px !important;
+  width: 80% !important;
+  max-width: 900px;
+  margin: 20px auto !important;
+  border-radius: 10px;
+}
+
+/* Host details page */
+.details-page {
+  padding: 30px;
+  min-height: 100vh;
+  text-align: center;
+}
+
+/* small back button style (optional) */
+.back-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
 }

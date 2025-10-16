@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const axios = require("axios");
+const hostelRoutes = require("./routes/hostelRoutes");
 
 const app = express();
 app.use(cors());
@@ -42,6 +43,6 @@ app.get("/gethostels/:city/:radius",async (req,res)=>{
   }
 })
 
-
+app.use("/", hostelRoutes);
 
 app.listen(4000,() =>{console.log(`Server running on port 4000`)}) ; 
