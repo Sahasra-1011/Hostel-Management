@@ -4,8 +4,6 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const axios = require("axios");
 
-dotenv.config();
-
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -44,4 +42,6 @@ app.get("/gethostels/:city/:radius",async (req,res)=>{
   }
 })
 
-app.listen(port,() =>{console.log(`Server running on port ${port}`)}) ; 
+
+
+app.listen(4000,() =>{console.log(`Server running on port 4000`)}) ; 
