@@ -3,15 +3,15 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const axios = require("axios");
+const hostelRoutes = require("./routes/hostelRoutes");
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-const port = process.env.PORT;
 
 app.get("/", (req, res) => {
-  res.send("Server is Runnning");
+  res.send("Server Runnnig");
 });
 
 app.get("/getlocation/:city", async(req,res)=>{
@@ -28,10 +28,11 @@ app.get("/getlocation/:city", async(req,res)=>{
   }
 });
 
+
 app.get("/gethostels/:city/:radius",async (req,res)=>{
   try{
      const {city,radius} = req.params;
-     const location = await axios.get(`http://localhost:${port}/getlocation/${city}`);
+     const location = await axios.get(`http://localhost:4000/getlocation/${city}`);
      let latitude = location.data['latitude'];
      let longitude = location.data['longitude'];
      const hostels = await axios.get(`https://overpass-api.de/api/interpreter?data=[out:json];node["tourism"="hostel"](around:${radius},${latitude},${longitude});out;`)
@@ -42,6 +43,6 @@ app.get("/gethostels/:city/:radius",async (req,res)=>{
   }
 })
 
+app.use("/", hostelRoutes);
 
-
-app.listen(4000,() =>{console.log(`Server running on port 4000`)}) ; 
+app.listen(4000,() =>{console.log(`Server running on port 4000`)}) ;
