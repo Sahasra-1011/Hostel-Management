@@ -34,12 +34,16 @@ export const useFirebase = () => {
 
 export const FirebaseProvider = ({ children }) => {
   const registerUser = async (email, password) => {
-    try {
+  try {
       const userCredentials = await createUserWithEmailAndPassword(firebaseAuth, email, password);
       const user = userCredentials.user;
-      console.log("User registered:", { uid: user.uid, email: user.email });
       await sendEmailVerification(user);
-      return { success: true, message: "Verification email sent. Please verify your email." };
+      await firebaseAuth.signOut();
+      console.log("User registered and signed out until verification:", { uid: user.uid, email: user.email });
+      return { 
+        success: true, 
+        message: "Verification email sent. Please verify your email before logging in." 
+      };
     } catch (error) {
       console.error("Signup error:", error.code, error.message);
       throw new Error(error.message);
@@ -50,12 +54,25 @@ export const FirebaseProvider = ({ children }) => {
     try {
       const userCredential = await signInWithEmailAndPassword(firebaseAuth, email, password);
       const user = userCredential.user;
+
       if (!user.emailVerified) {
+        await firebaseAuth.signOut(); // Immediate sign out
         throw new Error("Please verify your email before logging in.");
       }
+
       return { success: true, message: "Login successful!" };
     } catch (error) {
       console.error("Login error:", error.code, error.message);
+      // Re-throw with user-friendly message
+      if (error.code === 'auth/wrong-password') {
+        throw new Error("Incorrect password.");
+      } else if (error.code === 'auth/user-not-found') {
+        throw new Error("No account found with this email.");
+      } else if (error.code === 'auth/invalid-email') {
+        throw new Error("Invalid email address.");
+      } else if (error.code === 'auth/too-many-requests') {
+        throw new Error("Too many attempts. Try again later.");
+      }
       throw new Error(error.message);
     }
   };
