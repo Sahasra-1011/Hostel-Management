@@ -329,3 +329,17 @@
   border-radius: 8px;
   cursor: pointer;
 }
+
+.logout-btn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #d9534f;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.logout-btn:hover {
+  background-color: #c9302c;
+}
